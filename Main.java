@@ -1,27 +1,25 @@
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
-        Model model = new Model();
-        View view = new View();
-        Controller controller = new Controller(model, view);
-        Scanner scanner = new Scanner(System.in);
+        NumerosModel model = new NumerosModel();
+        View View = new View();
+        NumerosController controller = new NumerosController(model, View);
 
-        System.out.println("Digite 10 números:");
+        // Adicionando números
+        controller.setNumero(0, 5);
+        controller.setNumero(1, 2);
+        controller.setNumero(2, 7);
+        controller.setNumero(3, 1);
+        controller.setNumero(4, 10);
+        controller.setNumero(5, 3);
+        controller.setNumero(6, 6);
+        controller.setNumero(7, 8);
+        controller.setNumero(8, 4);
+        controller.setNumero(9, 9);
 
-        int[] numbers = new int[10];
-        for (int i = 0; i < 10; i++) {
-            System.out.print("Número " + (i + 1) + ": ");
-            numbers[i] = scanner.nextInt();
-        }
+        // Ordenando e exibindo com Insertion Sort
+        controller.ordenarNumerosInsertionSort();
 
-        controller.setNumbers(numbers);
-
-        System.out.println("Números digitados:");
-        controller.displayNumbers();
-
-        controller.sortNumbers();
-
-        scanner.close();
+        // Ordenando e exibindo com Bubble Sort
+        controller.ordenarNumerosBubbleSort();
     }
 }
